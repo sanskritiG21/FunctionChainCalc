@@ -1,5 +1,13 @@
+import Body from "./components/Body";
+import Header from "./components/Header";
+
 function App() {
-  return <div className="text-3xl">hello</div>;
+  return (
+    <div>
+      <Header />
+      <Body />
+    </div>
+  );
 }
 
 export default App;
