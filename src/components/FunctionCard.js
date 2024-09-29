@@ -2,7 +2,11 @@ import React from "react";
 import { PiDotsSix } from "react-icons/pi";
 import InputRadio from "./InputRadio";
 
-const FunctionCard = ({ funcNo, valueX, defaultValue, nextFunction }) => {
+const FunctionCard = ({ funcNo, defaultValue, output, updateEquation }) => {
+  const handleEquationChange = (e) => {
+    updateEquation(funcNo, e.target.value);
+  };
+
   return (
     <div className="bg-white w-64 p-4 rounded-xl drop-shadow-xl">
       <div className="flex items-center text-gray-500">
@@ -17,6 +21,7 @@ const FunctionCard = ({ funcNo, valueX, defaultValue, nextFunction }) => {
             name="equation"
             className="p-2 border-2 rounded-lg text-sm w-[100%]"
             defaultValue={defaultValue}
+            onChange={handleEquationChange}
           />
         </div>
         <div className="my-4">
@@ -25,7 +30,7 @@ const FunctionCard = ({ funcNo, valueX, defaultValue, nextFunction }) => {
             name="function"
             className="p-2 border-2 rounded-lg text-sm w-[100%] text-gray-500 bg-gray-100"
             disabled="true">
-            <option>Function: {nextFunction}</option>
+            <option>Function: {output}</option>
           </select>
         </div>
       </div>
