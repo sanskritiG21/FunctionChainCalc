@@ -5,7 +5,7 @@ export const calculateEquation = (valueX, equation) => {
 
   let acc = parseFloat(splittedEquation[0]);
 
-  if (isNaN(acc)) return "Invalid input";
+  if (isNaN(acc)) return "";
 
   for (let i = 1; i < splittedEquation.length; i += 2) {
     const operator = splittedEquation[i];
@@ -36,4 +36,23 @@ export const calculateEquation = (valueX, equation) => {
   }
 
   return acc;
+};
+
+export const determineChainOrder = (data) => {
+  let chain = [];
+  let inputFunction = 1;
+
+  while (chain.length < data.length) {
+    const currentFunction = data.find(({ id }) => id === inputFunction);
+
+    chain.push(currentFunction.id);
+    inputFunction = +currentFunction.output;
+
+    if (chain.includes(inputFunction)) {
+      console.error("Invalid chain: circular reference detected");
+      break;
+    }
+  }
+
+  return chain;
 };

@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* header */
+  .top-heading {
+    @apply text-5xl text-sky-600 font-semibold text-center;
+  }
+
+  .top-text {
+    @apply text-center text-slate-500;
+  }
+  .align-element-center {
+    @apply flex justify-center items-center;
+  }
+  /* body */
+  .body-container {
+    @apply m-4 mx-2 p-4 bg-sky-100 rounded-md flex;
+  }
+  .function-cads-wrapper {
+    @apply m-2 my-10 flex gap-10 justify-center flex-wrap;
+  }
+}
+
+@layer utilities {
+  .no-arrows::-webkit-outer-spin-button,
+  .no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .no-arrows {
+    -moz-appearance: textfield;
+  }
+}

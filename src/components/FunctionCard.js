@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { PiDotsSix } from "react-icons/pi";
 import InputRadio from "./InputRadio";
 
-const FunctionCard = ({ funcNo, defaultValue, output, updateEquation }) => {
+const FunctionCard = ({
+  funcNo,
+  defaultValue,
+  output,
+  updateEquation,
+  setNodes,
+  setEdges,
+  nodes,
+  edges,
+}) => {
+  const [error, setError] = useState(false);
   const handleEquationChange = (e) => {
-    updateEquation(funcNo, e.target.value);
+    const value = e.target.value;
+    const validPattern = /^[0-9+\-*/^x\s]*$/;
+
+    if (validPattern.test(value)) {
+      setError(false);
+      updateEquation(funcNo, value);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -19,7 +37,9 @@ const FunctionCard = ({ funcNo, defaultValue, output, updateEquation }) => {
           <input
             type="text"
             name="equation"
-            className="p-2 border-2 rounded-lg text-sm w-[100%]"
+            className={`p-2 border-2 rounded-lg text-sm w-[100%] focus:outline-none ${
+              error && "border-red-500"
+            }`}
             defaultValue={defaultValue}
             onChange={handleEquationChange}
           />
@@ -34,7 +54,13 @@ const FunctionCard = ({ funcNo, defaultValue, output, updateEquation }) => {
           </select>
         </div>
       </div>
-      <InputRadio />
+      <InputRadio
+        funcNo={funcNo}
+        setNodes={setNodes}
+        setEdges={setEdges}
+        nodes={nodes}
+        edges={edges}
+      />
     </div>
   );
 };

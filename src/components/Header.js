@@ -2,12 +2,10 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="align-element-center">
       <div className="m-2">
-        <h2 className="text-5xl text-sky-600 font-semibold text-center">
-          Function Chain Calculator
-        </h2>
-        <p className="text-center text-slate-500">Project By Sanskriti</p>
+        <h2 className="top-heading">Function Chain Calculator</h2>
+        <p className="top-text">Project By Sanskriti</p>
       </div>
     </div>
   );
