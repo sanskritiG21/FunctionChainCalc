@@ -1,21 +1,16 @@
 import React, { useEffect, useState, useCallback } from "react";
 import FunctionCard from "./FunctionCard";
 import Output from "./Output";
-import { data } from "../utils/data";
+import { DATA, EDGES } from "../utils/data";
 import { calculateEquation, determineChainOrder } from "../utils/calculation";
 import RadioIcon from "./RadioIcon";
 
 const Body = () => {
-  const [functionData, setFunctionData] = useState(data || []);
+  const [functionData, setFunctionData] = useState(DATA || []);
   const [valX, setValX] = useState("");
   const [finalOutput, setFinalOutput] = useState("");
   const [nodes, setNodes] = useState([]);
-  const [edges, setEdges] = useState([
-    { id: "1-2", source: "1", target: "2" },
-    { id: "2-3", source: "2", target: "3" },
-    { id: "3-4", source: "3", target: "4" },
-    { id: "4-5", source: "4", target: "5" },
-  ]);
+  const [edges, setEdges] = useState(EDGES);
 
   const functionChainCalc = () => {
     let currentValue = parseFloat(valX);
@@ -52,19 +47,17 @@ const Body = () => {
   return (
     <div className="body-container">
       {/* Input Section */}
-      <div className="flex align-middle items-center w-64 ">
-        <div className="">
-          <h6 className="bg-[#e29a2e] text-white rounded-full text-center mb-1 px-2 py-0.5">
-            Initial value of x
-          </h6>
-          <div className="p-2 flex rounded-2xl  drop-shadow-xl border-[#e29a2e] border-2 bg-white">
+      <div className="middle-align-input">
+        <div>
+          <h6 className="input-pill">Initial value of x</h6>
+          <div className="input-container">
             <input
               name="valueX"
               type="number"
-              className="border-none focus:outline-none px-2 border-r-2 w-24"
+              className="input-item"
               onChange={handleInputValue}
             />
-            <div className="flex align-middle items-center px-2">
+            <div className="middle-align-radiobtn">
               <RadioIcon />
             </div>
           </div>
@@ -72,7 +65,7 @@ const Body = () => {
       </div>
 
       {/* Function Cards */}
-      <div className="function-cads-wrapper w-[80%] ">
+      <div className="function-cads-wrapper">
         {functionData?.map(({ id, defaultEq, output }) => (
           <FunctionCard
             funcNo={id}

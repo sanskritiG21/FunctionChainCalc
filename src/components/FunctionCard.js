@@ -26,30 +26,25 @@ const FunctionCard = ({
   };
 
   return (
-    <div className="bg-white w-64 p-4 rounded-xl drop-shadow-xl">
-      <div className="flex items-center text-gray-500">
-        <PiDotsSix className="mr-2 text-xl" />
+    <div className="function-card-wrapper">
+      <div className="fc-header">
+        <PiDotsSix className="fc-6-dots" />
         <h6>Function: {funcNo}</h6>
       </div>
-      <div className="my-2 py-2 px-1">
+      <div className="fc-input-wrapper">
         <div>
-          <h6 className="text-sm mb-1">Equation</h6>
+          <h6 className="fc-equation-txt">Equation</h6>
           <input
             type="text"
             name="equation"
-            className={`p-2 border-2 rounded-lg text-sm w-[100%] focus:outline-none ${
-              error && "border-red-500"
-            }`}
+            className={`fc-equation-input ${error && "border-red-500"}`}
             defaultValue={defaultValue}
             onChange={handleEquationChange}
           />
         </div>
         <div className="my-4">
-          <h6 className="text-sm mb-1">Next function</h6>
-          <select
-            name="function"
-            className="p-2 border-2 rounded-lg text-sm w-[100%] text-gray-500 bg-gray-100"
-            disabled="true">
+          <h6 className="fc-equation-txt">Next function</h6>
+          <select name="function" className="fc-dropdown" disabled="true">
             <option>Function: {output}</option>
           </select>
         </div>

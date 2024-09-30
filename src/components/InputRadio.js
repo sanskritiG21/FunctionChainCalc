@@ -60,28 +60,22 @@ const InputRadio = ({ funcNo, setNodes, setEdges, nodes, edges }) => {
           id="input"
           name="input"
           value="input"
-          className="opacity-0 absolute peer"
+          className="no-opacity-input peer"
           checked
           ref={inputRef}
         />
-        <label
-          htmlFor="input"
-          className="flex items-center space-x-2 cursor-pointer">
-          <span className="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center peer-checked:border-sky-600">
-            <span
-              className={`w-2 h-2 "bg-sky-600" bg-sky-600 rounded-full peer-checked:block`}></span>
+        <label htmlFor="input" className="radio-icon-wrapper">
+          <span className="radio-icon-sub-wrap">
+            <span className="radio-icon-blue-dot"></span>
           </span>
-          <span className="text-gray-500">input</span>
+          <span className="gray-mid">input</span>
         </label>
       </div>
       <div>
-        <label
-          htmlFor="input"
-          className="flex items-center space-x-2 cursor-pointer">
-          <span className="text-gray-500">output</span>
-          <span className="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center peer-checked:border-sky-600">
-            <span
-              className={`w-2 h-2  bg-sky-600 rounded-full peer-checked:block`}></span>
+        <label htmlFor="input" className="radio-icon-wrapper">
+          <span className="gray-mid">output</span>
+          <span className="radio-icon-sub-wrap">
+            <span className="radio-icon-blue-dot"></span>
           </span>
         </label>
         <input
@@ -89,7 +83,7 @@ const InputRadio = ({ funcNo, setNodes, setEdges, nodes, edges }) => {
           id="output"
           name="output"
           value="output"
-          className="opacity-0 absolute peer"
+          className="no-opacity-input peer"
           checked
           ref={inputRef}
         />

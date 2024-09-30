@@ -19,18 +19,92 @@
     @apply m-4 mx-2 p-4 bg-sky-100 rounded-md flex;
   }
   .function-cads-wrapper {
-    @apply m-2 my-10 flex gap-10 justify-center flex-wrap;
-  }
-}
-
-@layer utilities {
-  .no-arrows::-webkit-outer-spin-button,
-  .no-arrows::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    @apply m-2 my-10 flex gap-10 justify-center flex-wrap  w-[80%];
   }
 
-  .no-arrows {
-    -moz-appearance: textfield;
+  .middle-align-input {
+    @apply flex align-middle items-center w-64;
+  }
+
+  .input-pill {
+    @apply bg-[#e29a2e] text-white rounded-full text-center mb-1 px-2 py-0.5;
+  }
+
+  .input-container {
+    @apply p-2 flex rounded-2xl  drop-shadow-xl border-[#e29a2e] border-2 bg-white;
+  }
+
+  .input-item {
+    @apply border-none focus:outline-none px-2 border-r-2 w-24;
+  }
+  .middle-align-radiobtn {
+    @apply flex align-middle items-center px-2;
+  }
+
+  .function-card-wrapper {
+    @apply bg-white w-64 p-4 rounded-xl drop-shadow-xl;
+  }
+
+  .fc-header {
+    @apply flex items-center text-gray-500;
+  }
+
+  .fc-6-dots {
+    @apply mr-2 text-xl;
+  }
+
+  .fc-input-wrapper {
+    @apply my-2 py-2 px-1;
+  }
+
+  .fc-equation-txt {
+    @apply text-sm mb-1;
+  }
+
+  .fc-equation-input {
+    @apply p-2 border-2 rounded-lg text-sm w-[100%] focus:outline-none;
+  }
+
+  .fc-dropdown {
+    @apply p-2 border-2 rounded-lg text-sm w-[100%] text-gray-500 bg-gray-100;
+  }
+
+  .output-wrapper {
+    @apply flex items-center w-64;
+  }
+
+  .output-pill {
+    @apply bg-[#4caf7a]  text-white rounded-full text-center mb-1 px-2 py-0.5;
+  }
+
+  .output-container {
+    @apply p-2 py-2 flex rounded-2xl w-[100%]  drop-shadow-xl border-[#4caf7a] border-2 bg-white;
+  }
+
+  .output-radioicon-wrapper {
+    @apply flex align-middle items-center p-1 px-2;
+  }
+
+  .output-txt {
+    @apply border-l-2 overflow-hidden w-24;
+  }
+
+  .radio-icon-wrapper {
+    @apply flex items-center space-x-2 cursor-pointer;
+  }
+
+  .radio-icon-sub-wrap {
+    @apply w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center peer-checked:border-sky-600;
+  }
+  .radio-icon-blue-dot {
+    @apply w-2 h-2 bg-sky-600  rounded-full peer-checked:block;
+  }
+
+  .no-opacity-input {
+    @apply opacity-0 absolute;
+  }
+
+  .gray-mid {
+    @apply text-gray-500;
   }
 }
